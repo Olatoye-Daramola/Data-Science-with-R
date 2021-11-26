@@ -1,0 +1,61 @@
+---
+title: "projectOne"
+author: "Olatoye"
+date: "11/25/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+```{r}
+34 - 2
+```
+```{r}
+x <- seq(1,20, by=2)
+x
+```
+```{r}
+emp_data<-data.frame(emp_id = c(1:5),
+emp_name = c("Rick", "Dan", "Michelle", "Ryan", "Gary"),
+salary = c(623.3, 515.2, 611.0, 729.0, 843.25)
+)
+
+subset(emp.data, emp_id == 5)
+emp_data[which(emp_data$emp_name == "Dan"),]
+emp_data[emp_data$emp_name=="Rick",]
+
+```
+```{r}
+new_data <- matrix(1:16, 4, 4)
+new_data
+
+colnames(new_data) <- c("col1", "col2", "col3", "col4")
+colnames(new_data)
+
+new_data[1,2]
+
+new_data[3:4, 1:3]
+```
