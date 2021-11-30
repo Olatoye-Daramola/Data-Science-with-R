@@ -1,0 +1,100 @@
+---
+title: "who_suicide"
+author: "Olatoye"
+date: "11/30/2021"
+output: pdf_document
+---
+
+```{r}
+fertility <- read.csv("~/Desktop/R/Data-Science-with-R/Fertility (1).csv", sep=",", header=TRUE,
+                 col.names=c(1, 2, 3, 4, 5, 6, 7, 8, 9)
+                 )
+fertility
+```
+
+
+```{r}
+auto <- read.table("https://s3.amazonaws.com/assets.datacamp.com/blog_assets/test.txt", header=FALSE)
+head(auto[1:2,2:3])
+```
+
+
+```{r}
+message("Missing values in file: ", sum(is.na(fertility)))
+message("Missing values in auto: ", sum(is.na(auto)))
+```
+
+
+```{r}
+who_suicide <- read.csv("~/Desktop/R/Data-Science-with-R/who_suicide_statistics_semi.csv", header=TRUE,
+                        sep=",", strip.white=TRUE
+                      )
+who_suicide
+```
+
+
+```{r}
+host <- "courses.csrrinzqubik.us-east-1.rds.amazonaws.com"
+connect <- dbConnect(RMySQL::MySQL(), dbname="tweater",
+                     host=host, port=3306, user="student", password="datacamp"
+                     )
+tables <- dbListTables(connect)
+tables
+```
+
+```{r}
+users <- dbReadTable(connect, "users")
+users
+```
+
+```{r}
+comments <- dbReadTable(connect, "comments")
+comments
+```
+
+```{r}
+write.csv(comments, "~/Desktop/R/Data-Science-with-R/comments.csv")
+```
+
+```{r}
+host <- "car-simulation-station.c9az8e0qjbgo.us-east-1.rds.amazonaws.com"
+connect <- dbConnect(RMySQL::MySQL(), dbname="car_simulation_station",
+                     host=host, port=3306, user="datacamp_user",
+                     password="learn tabular data for fun and profit"
+                     )
+tables2 <- dbListTables(connect)
+tables2
+```
+
+
+```{r}
+lifetime <- dbReadTable(connect, "lifetime_scq_cleaned")
+write.csv(lifetime, "~/Desktop/R/Data-Science-with-R/lifetime.csv")
+lifetime
+```
+
+```{r}
+father <- dbReadTable(connect, "bapq_father_self_report_cleaned")
+write.csv(father, "~/Desktop/R/Data-Science-with-R/father.csv")
+father
+```
+
+
+```{r}
+bcancer <- read.csv("https://raw.githubusercontent.com/mGalarnyk/Python_Tutorials/master/Kaggle/BreastCancerWisconsin/data/data.csv", header=T)
+str(bcancer)
+```
+
+
+```{r}
+house <- read.csv("~/Desktop/R/Data-Science-with-R/house.csv")
+house
+```
+
+```{r}
+boxplot(Price~Status, data = house, main = "price")
+```
+
+```{r}
+plot(house$SQFT, house$Price, xlab="SQFT", ylab="Price", main="ScatterPlot of Price and SQFT")
+```
