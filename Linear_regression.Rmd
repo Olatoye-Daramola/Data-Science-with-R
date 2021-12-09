@@ -1,0 +1,79 @@
+---
+title: "linear_regression"
+author: "Olatoye"
+date: "12/8/2021"
+output: pdf_document
+---
+
+
+
+
+
+
+```{r}
+iris <- read.csv("~/Desktop/R/Data-Science-with-R/datasets/iris.csv")
+summary(iris)
+```
+
+```{r}
+sum(is.na(iris))
+head(iris, 10)
+```
+
+```{r}
+boxplot(iris[,1]~iris[,5], data = iris)
+```
+
+
+```{r}
+ml <- lm(iris[,1]~iris[,3], data = iris)
+summary(ml)
+```
+
+```{r}
+hs <- read.csv("~/Desktop/R/Data-Science-with-R/datasets/house.csv")
+str(hs)
+```
+
+```{r}
+plot(hs$Price~hs$Bathrooms + hs$Bedrooms + hs$Location + hs$MLS. + hs$SQFT + hs$Price.SQFT + hs$Status, main = "Scatter Plot between Price and other variables")
+```
+
+```{r}
+attach(hs)
+m2 <- lm(Price~Bedrooms + Bathrooms + SQFT + Status)
+summary(m2)
+```
+
+```{r}
+boxplot(SQFT, data = hs)
+```
+
+
+```{r}
+quantile(hs$SQFT)
+#for (value in hs$SQFT) {
+#  if (value < (quantile(hs$SQFT,prob=0.25) - 1.5 * IQR(SQFT)) | value > (quantile(hs$SQFT,prob=0.75) + 1.5 * IQR(hs$SQFT))) {
+#    value <- median(hs$SQFT)
+#  }
+#}
+
+#boxplot(SQFT, data = hs)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
